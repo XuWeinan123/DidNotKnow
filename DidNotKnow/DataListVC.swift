@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DataListVC: UITableViewController {
 
     var dataWordList:[[String]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataWordList = [["测试语句","🙂"],["测试语句","🙂"],["测试语句","🙂"],["测试语句","🙂"]]
+        let realm = try! Realm()
+        let dataWordObjects = realm.objects(WordData.self)
+        for i in 0..<dataWordObjects.count{
+            dataWordList.append([dataWordObjects[i].word!,dataWordObjects[i].attitude!])
+        }
+        self.tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,6 +29,9 @@ class DataListVC: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
