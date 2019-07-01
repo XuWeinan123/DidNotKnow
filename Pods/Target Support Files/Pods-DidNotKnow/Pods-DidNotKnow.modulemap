@@ -1,0 +1,6 @@
+framework module Pods_DidNotKnow {
+  umbrella header "Pods-DidNotKnow-umbrella.h"
+
+  export *
+  module * { export * }
+}
