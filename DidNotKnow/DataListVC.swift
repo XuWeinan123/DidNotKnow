@@ -12,9 +12,10 @@ import RealmSwift
 class DataListVC: UITableViewController {
 
     var dataWordList:[[String]] = []
+    
+    let realm = try! Realm()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let realm = try! Realm()
         let dataWordObjects = realm.objects(WordData.self)
         for i in 0..<dataWordObjects.count{
             dataWordList.append([dataWordObjects[i].word!,dataWordObjects[i].attitude!])
@@ -47,7 +48,23 @@ class DataListVC: UITableViewController {
         cell.attitude.text = dataWordList[indexPath.row][1]
         return cell
     }
-
+    @IBAction func clearAllData(_ sender: UIBarButtonItem) {
+        dataWordList = []
+        let realmDatas = realm.objects(WordData.self)
+        for i in 0..<realmDatas.count{
+            try! realm.write {
+                realm.delete(realmDatas[0])
+            }
+        }
+        let realmPersons = realm.objects(Person.self)
+        for i in 0..<realmPersons.count{
+            try! realm.write {
+                realm.delete(realmPersons[0])
+            }
+        }
+        self.tableView.reloadData()
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

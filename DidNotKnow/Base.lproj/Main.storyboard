@@ -181,7 +181,13 @@
                             <outlet property="delegate" destination="ikL-n1-dJL" id="JGE-y6-fgq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="数据统计" id="tYL-he-RAa"/>
+                    <navigationItem key="navigationItem" title="数据统计" id="tYL-he-RAa">
+                        <barButtonItem key="rightBarButtonItem" title="清空" id="t4c-Km-ROh">
+                            <connections>
+                                <action selector="clearAllData:" destination="ikL-n1-dJL" id="5oC-tU-2aO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGD-D3-ykU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
