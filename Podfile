@@ -7,5 +7,6 @@ target 'DidNotKnow' do
 
   # Pods for DidNotKnow
   pod 'RealmSwift'
+  pod 'AKPickerView-Swift'
 
 end

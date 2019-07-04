@@ -1,26 +1,19 @@
 //
-//  DataListVC.swift
+//  SettingVC.swift
 //  DidNotKnow
 //
-//  Created by 徐炜楠 on 2019/6/30.
+//  Created by XuWeinan on 2019/7/3.
 //  Copyright © 2019 徐炜楠. All rights reserved.
 //
 
 import UIKit
-import RealmSwift
 
-class DataListVC: UITableViewController {
+class SettingVC: UITableViewController {
 
-    var dataWordList:[[String]] = []
-    
-    let realm = try! Realm()
+    var existWord:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dataWordObjects = realm.objects(WordData.self)
-        for i in 0..<dataWordObjects.count{
-            dataWordList.append([dataWordObjects[i].word!,dataWordObjects[i].attitude!])
-        }
-        self.tableView.reloadData()
+        existWord.append("编辑文案")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,44 +23,36 @@ class DataListVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return existWord.count
+    }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 156/3
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return dataWordList.count
-    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! DataCell
-        cell.word.text = dataWordList[indexPath.row][0]
-        cell.attitude.text = dataWordList[indexPath.row][1]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingListCell") as! SettingListCell
+        cell.settingItemLb.text = existWord[indexPath.row]
         return cell
     }
-    @IBAction func clearAllData(_ sender: UIBarButtonItem) {
-        dataWordList = []
-        let realmDatas = realm.objects(WordData.self)
-        for _ in 0..<realmDatas.count{
-            try! realm.write {
-                realm.delete(realmDatas[0])
-            }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch existWord[indexPath.row] {
+        case "编辑文案":
+            let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "ExistWord")
+            settingVC?.title = existWord[indexPath.row]
+            self.navigationController?.pushViewController(settingVC!, animated: true)
+        default:
+            break
         }
-        let realmPersons = realm.objects(Person.self)
-        for _ in 0..<realmPersons.count{
-            try! realm.write {
-                realm.delete(realmPersons[0])
-            }
-        }
-        self.tableView.reloadData()
     }
-    
+
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

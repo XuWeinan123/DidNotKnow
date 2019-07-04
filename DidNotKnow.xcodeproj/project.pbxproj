@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D3E49CA22CC704A00AB8CC3 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E49C922CC704A00AB8CC3 /* SettingVC.swift */; };
+		3D3E49CC22CC719E00AB8CC3 /* SettingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E49CB22CC719E00AB8CC3 /* SettingListCell.swift */; };
+		3D3E49CE22CC74E600AB8CC3 /* ExistWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E49CD22CC74E600AB8CC3 /* ExistWordVC.swift */; };
+		3D3E49D022CC751C00AB8CC3 /* ExistWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E49CF22CC751C00AB8CC3 /* ExistWordCell.swift */; };
 		E10E34E422C8D3A4003BB40C /* DataListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10E34E322C8D3A4003BB40C /* DataListVC.swift */; };
 		E10E34E622C8D3D6003BB40C /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10E34E522C8D3D6003BB40C /* DataCell.swift */; };
 		E1B958EA22C8CEC6000B54D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B958E922C8CEC6000B54D9 /* AppDelegate.swift */; };
@@ -18,9 +22,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		330A0C2E2B563C3ACA26E0E6 /* Pods-DidNotKnow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DidNotKnow.release.xcconfig"; path = "Pods/Target Support Files/Pods-DidNotKnow/Pods-DidNotKnow.release.xcconfig"; sourceTree = "<group>"; };
+		3D3E49C922CC704A00AB8CC3 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		3D3E49CB22CC719E00AB8CC3 /* SettingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListCell.swift; sourceTree = "<group>"; };
+		3D3E49CD22CC74E600AB8CC3 /* ExistWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistWordVC.swift; sourceTree = "<group>"; };
+		3D3E49CF22CC751C00AB8CC3 /* ExistWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistWordCell.swift; sourceTree = "<group>"; };
 		B439980675AFFA4A30EF252E /* Pods-DidNotKnow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DidNotKnow.debug.xcconfig"; path = "Target Support Files/Pods-DidNotKnow/Pods-DidNotKnow.debug.xcconfig"; sourceTree = "<group>"; };
 		BE25C970B2D3BA21E2B5DB8A /* Pods_DidNotKnow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DidNotKnow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3065C7318E05B7BFC2D969 /* Pods-DidNotKnow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DidNotKnow.release.xcconfig"; path = "Target Support Files/Pods-DidNotKnow/Pods-DidNotKnow.release.xcconfig"; sourceTree = "<group>"; };
+		DCB54DF3DC10998B069CE5A1 /* Pods-DidNotKnow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DidNotKnow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DidNotKnow/Pods-DidNotKnow.debug.xcconfig"; sourceTree = "<group>"; };
 		E10E34E322C8D3A4003BB40C /* DataListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataListVC.swift; sourceTree = "<group>"; };
 		E10E34E522C8D3D6003BB40C /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
 		E1B958E622C8CEC6000B54D9 /* DidNotKnow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DidNotKnow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,8 +67,9 @@
 			children = (
 				B439980675AFFA4A30EF252E /* Pods-DidNotKnow.debug.xcconfig */,
 				BF3065C7318E05B7BFC2D969 /* Pods-DidNotKnow.release.xcconfig */,
+				DCB54DF3DC10998B069CE5A1 /* Pods-DidNotKnow.debug.xcconfig */,
+				330A0C2E2B563C3ACA26E0E6 /* Pods-DidNotKnow.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -91,6 +102,10 @@
 				E1B958F522C8CEC9000B54D9 /* Info.plist */,
 				E10E34E322C8D3A4003BB40C /* DataListVC.swift */,
 				E10E34E522C8D3D6003BB40C /* DataCell.swift */,
+				3D3E49C922CC704A00AB8CC3 /* SettingVC.swift */,
+				3D3E49CB22CC719E00AB8CC3 /* SettingListCell.swift */,
+				3D3E49CD22CC74E600AB8CC3 /* ExistWordVC.swift */,
+				3D3E49CF22CC751C00AB8CC3 /* ExistWordCell.swift */,
 			);
 			path = DidNotKnow;
 			sourceTree = "<group>";
@@ -194,13 +209,24 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DidNotKnow/Pods-DidNotKnow-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DidNotKnow/Pods-DidNotKnow-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AKPickerView-Swift/AKPickerView_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DidNotKnow/Pods-DidNotKnow-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKPickerView_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DidNotKnow/Pods-DidNotKnow-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DidNotKnow/Pods-DidNotKnow-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -211,9 +237,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1B958EC22C8CEC6000B54D9 /* ViewController.swift in Sources */,
+				3D3E49CE22CC74E600AB8CC3 /* ExistWordVC.swift in Sources */,
 				E10E34E422C8D3A4003BB40C /* DataListVC.swift in Sources */,
+				3D3E49CA22CC704A00AB8CC3 /* SettingVC.swift in Sources */,
 				E1B958EA22C8CEC6000B54D9 /* AppDelegate.swift in Sources */,
+				3D3E49CC22CC719E00AB8CC3 /* SettingListCell.swift in Sources */,
 				E10E34E622C8D3D6003BB40C /* DataCell.swift in Sources */,
+				3D3E49D022CC751C00AB8CC3 /* ExistWordCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +387,7 @@
 		};
 		E1B958F922C8CEC9000B54D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B439980675AFFA4A30EF252E /* Pods-DidNotKnow.debug.xcconfig */;
+			baseConfigurationReference = DCB54DF3DC10998B069CE5A1 /* Pods-DidNotKnow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -376,7 +406,7 @@
 		};
 		E1B958FA22C8CEC9000B54D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF3065C7318E05B7BFC2D969 /* Pods-DidNotKnow.release.xcconfig */;
+			baseConfigurationReference = 330A0C2E2B563C3ACA26E0E6 /* Pods-DidNotKnow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

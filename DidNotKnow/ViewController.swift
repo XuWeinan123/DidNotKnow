@@ -50,7 +50,7 @@ class ViewController: UIViewController {
             wordLabel.text = words.removeFirst()
         }else{
             let alertController = UIAlertController(title: "评价结束", message: "输入名称以保留结果", preferredStyle: .alert)
-            alertController.addTextField { (textField) in
+            alertController.addTextField { (textField) in 
                 textField.placeholder = "Jennifer"
             }
             let cancelAction = UIAlertAction(title: "不保存", style: .default) { (action) in
