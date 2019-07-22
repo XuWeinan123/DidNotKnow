@@ -9,41 +9,49 @@
 import UIKit
 import RealmSwift
 
-class ExistWordVC: UITableViewController {
+class ExistWordVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     let realm = try! Realm()
     var existWords:[String] = []
+    @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        for i in 0..<20 {
+//            try! realm.write {
+//                var temp = ExistWord()
+//                temp.word = "测试数据\(i+1)"
+        //                realm.add(temp)
+        //            }
+        //        }
         resetExistWord()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let editItem = UIBarButtonItem(image: UIImage(named: "编辑文案"), style: .plain, target: self, action: #selector(addExistWord))
+        self.navigationItem.rightBarButtonItem = editItem
     }
     
     // MARK: - Table view data source
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 156/3
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return existWords.count
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! ExistWordCell
         cell.existWordLb.text = existWords[indexPath.row]
         return cell
     }
-    @IBAction func addExistWord(_ sender: UIBarButtonItem) {
+    @objc func addExistWord() {
         let alertController = UIAlertController(title: "新增词条", message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in
             textField.placeholder = "词条名称"

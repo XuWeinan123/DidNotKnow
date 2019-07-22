@@ -8,12 +8,22 @@
 
 import UIKit
 
-class SettingVC: UITableViewController {
+class SettingVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
-    var existWord:[String] = []
+    var settingItem:[String] = []
+    @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        existWord.append("编辑文案")
+        tableView.delegate = self
+        tableView.dataSource = self
+        settingItem.append("编辑文案")
+        settingItem.append("关于我")
+        
+        //创建表头标签
+        let frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 16)
+        let headerView = UILabel(frame: frame)
+        self.tableView.tableHeaderView = headerView
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,30 +33,32 @@ class SettingVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return existWord.count
+        return settingItem.count
     }
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 156/3
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingListCell") as! SettingListCell
-        cell.settingItemLb.text = existWord[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellID = "Cell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID) as! SettingListCell
+        cell.settingItemLb.text = settingItem[indexPath.row]
+        cell.settingItemImage.image = UIImage(named: settingItem[indexPath.row])
         return cell
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch existWord[indexPath.row] {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch settingItem[indexPath.row] {
         case "编辑文案":
             let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "ExistWord")
-            settingVC?.title = existWord[indexPath.row]
+            settingVC?.title = settingItem[indexPath.row]
             self.navigationController?.pushViewController(settingVC!, animated: true)
         default:
             break

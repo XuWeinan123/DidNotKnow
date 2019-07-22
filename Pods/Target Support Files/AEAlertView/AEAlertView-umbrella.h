@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double AKPickerView_SwiftVersionNumber;
-FOUNDATION_EXPORT const unsigned char AKPickerView_SwiftVersionString[];
+FOUNDATION_EXPORT double AEAlertViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char AEAlertViewVersionString[];
 

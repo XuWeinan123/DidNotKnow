@@ -11,6 +11,7 @@ import UIKit
 class SettingListCell: UITableViewCell {
 
     @IBOutlet weak var settingItemLb: UILabel!
+    @IBOutlet var settingItemImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

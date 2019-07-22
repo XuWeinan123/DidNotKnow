@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             let realm = try! Realm()
     override func viewDidLoad() {
         super.viewDidLoad()
-        resetWords()
+        //resetWords()
         contentAreaView.layer.cornerRadius = 20
         
         print(Realm.Configuration.defaultConfiguration.fileURL)
